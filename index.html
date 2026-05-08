@@ -187,26 +187,28 @@
     <script>
         // Data
         const PRODUCTS = [
-            {
-                id: "pet-100",
-                name: "Chika Chika Cool 100mL",
-                target: "Small & Mid Pets",
-                tag: "For pets",
-                img: "images/chikachika-100ml.png",
-                shortDesc: "It offers a safe and effective solution designed for stress-free application.",
-                details: "Formulated with natural peppermint and cooling agents safe for frequent ingestion. Helps with bad breath and gum health.",
-                usage: "Spray directly into the mouth 2-3 times daily or onto a toy."
-            },
-            {
-                id: "camel-1000",
-                name: "Chika Chika Cool 1L",
-                target: "Large Animals",
-                tag: "For large animals",
-                img: "images/chikachika-1l.png",
-                shortDesc: "1L bulk care for camels, horses, and large species",
-                details: "High-concentration formula providing intense cooling for animals in desert or ranch environments.",
-                usage: "Dilute as needed or apply directly for maximum cooling effect."
-            }
+          {
+    id: "pet-100",
+    name: "Chika Chika Cool 100mL",
+    target: "Small & Mid Pets",
+    tag: "For pets",
+    img: "images/chikachika-100ml.png",
+    detailUrl: "chikachika-100ml.html",   // ← 추가
+    shortDesc: "...",
+    details: "...",
+    usage: "..."
+},
+{
+    id: "camel-1000",
+    name: "Chika Chika Cool 1L",
+    target: "Large Animals",
+    tag: "For large animals",
+    img: "images/chikachika-1l.png",
+    detailUrl: "chikachika-1l.html",      // ← 추가 (지금은 아직 만들지 않은 페이지)
+    shortDesc: "...",
+    details: "...",
+    usage: "..."
+}
         ];
 
         const FAQS = [
@@ -286,9 +288,9 @@
                                 ${product.tag}
                             </span>
                             <h3 class="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">${product.name}</h3>
-                            <button onclick="toggleProduct('${product.id}')" class="mt-2 text-[10px] font-bold text-brand-mint-deep hover:underline flex items-center gap-1">
-                                ${openProducts.has(product.id) ? 'Close' : 'Learn More →'}
-                            </button>
+                            <a href="${product.detailUrl}" class="mt-2 text-[10px] font-bold text-brand-mint-deep hover:underline flex items-center gap-1 inline-block">
+    Learn More →
+</a>
                         </div>
                     </div>
                     <div id="details-${product.id}" class="overflow-hidden duration-300 transition-all ${openProducts.has(product.id) ? 'mt-3 max-h-40 opacity-100' : 'max-h-0 opacity-0'}">
