@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimipet Korea - Premium Animal Care</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Font: Pretendard -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard Variable', 'Pretendard', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: '#78D1C2',
+                            'mint-deep': '#4EA99B',
+                            'mint-light': '#E0F7FA',
+                            secondary: '#FF8A80',
+                            bg: '#F8FBFA',
+                        }
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: rgba(120, 209, 194, 0.2);
+            border-radius: 9999px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(120, 209, 194, 0.4);
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-brand-bg text-slate-800 dark:bg-[#0f172a] dark:text-slate-200 duration-300">
+
+    <div class="min-h-screen p-4 md:p-8 max-w-[1280px] mx-auto flex flex-col gap-6">
+        <!-- Header -->
+        <header class="flex items-center justify-between h-12 shrink-0">
+            <div class="flex items-center gap-2">
+                <div class="bg-brand-primary p-1.5 rounded-lg text-white font-black text-xs">MK</div>
+                <h1 class="text-xl font-bold tracking-tight text-slate-700 dark:text-white">
+                    Mimipet <span class="text-brand-mint-deep">Korea</span>
+                </h1>
+            </div>
+            <nav class="flex items-center gap-6 text-sm font-medium text-slate-500">
+                <a href="#products" class="hover:text-brand-mint-deep hidden md:block">Products</a>
+                <a href="#faq" class="hover:text-brand-mint-deep hidden md:block">FAQ</a>
+                <a href="#contact" class="hover:text-brand-mint-deep hidden md:block">Contact Us</a>
+                <button id="dark-mode-toggle" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-slate-600 dark:text-amber-400">
+                    <i data-lucide="moon" class="w-[18px] dark:hidden"></i>
+                    <i data-lucide="sun" class="w-[18px] hidden dark:block"></i>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Bento Layout -->
+        <main class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left Col: Hero + Values -->
+            <div class="lg:col-span-3 flex flex-col gap-6">
+                <!-- Hero Section (Gradient Version) -->
+                <section class="flex-1 relative rounded-4xl overflow-hidden shadow-sm border border-brand-primary/20 min-h-[350px] bg-gradient-to-br from-brand-primary via-brand-primary to-[#4EA99B]">
+                    <div class="absolute inset-0 hero-pattern opacity-50"></div>
+                    <div class="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-black/50 via-transparent to-transparent p-8 flex flex-col justify-end text-white">
+                        <div class="transform transition-all duration-700" id="hero-content">
+                            <h2 class="text-3xl font-black leading-tight mb-4">
+                                Refresh Every<br/>Animal Life
+                            </h2>
+                            <p class="text-xs opacity-90 leading-relaxed max-w-[220px]">
+                                Professional care for every creature, from companion pets to majestic giants.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute top-8 right-8 text-white/20">
+                        <i data-lucide="heart" class="w-16 h-16"></i>
+                    </div>
+                </section>
+
+                <section id="about" class="bg-white dark:bg-slate-800 p-6 rounded-4xl border border-slate-100 dark:border-slate-700 flex flex-col justify-center space-y-4 shrink-0 transition-colors">
+                    <h2 class="text-[10px] font-bold uppercase tracking-widest text-brand-mint-deep">Core Values</h2>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="text-center group">
+                            <div class="w-8 h-8 mx-auto bg-brand-primary/10 dark:bg-brand-primary/5 rounded-full flex items-center justify-center mb-1 text-brand-mint-deep font-bold text-sm transition-transform hover:scale-110">✓</div>
+                            <p class="text-[9px] font-bold dark:text-slate-200">Safe</p>
+                        </div>
+                        <div class="text-center group">
+                            <div class="w-8 h-8 mx-auto bg-brand-primary/10 dark:bg-brand-primary/5 rounded-full flex items-center justify-center mb-1 text-brand-mint-deep font-bold text-sm transition-transform hover:scale-110">♥</div>
+                            <p class="text-[9px] font-bold dark:text-slate-200">Friendly</p>
+                        </div>
+                        <div class="text-center group">
+                            <div class="w-8 h-8 mx-auto bg-brand-primary/10 dark:bg-brand-primary/5 rounded-full flex items-center justify-center mb-1 text-brand-mint-deep font-bold text-sm transition-transform hover:scale-110">∞</div>
+                            <p class="text-[9px] font-bold dark:text-slate-200">All-Size</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Column 2: Product Line-up -->
+            <div class="lg:col-span-4 flex flex-col gap-6">
+                <section id="products" class="flex-1 bg-white dark:bg-slate-800 rounded-4xl p-8 border border-slate-100 dark:border-slate-700 flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-black dark:text-white">Products</h2>
+                        <span class="text-[10px] text-slate-400 font-mono tracking-widest">EST. 2024</span>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-4 overflow-y-auto custom-scroll pr-2" id="products-list">
+                        <!-- Products rendered by JS -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Column 3: FAQ -->
+            <div class="lg:col-span-3 flex flex-col gap-6">
+                <section id="faq" class="flex-1 bg-white dark:bg-slate-800 rounded-4xl p-6 border border-slate-100 dark:border-slate-700 flex flex-col overflow-hidden">
+                    <h2 class="text-sm font-black mb-4 flex items-center gap-2 dark:text-white">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> FAQ
+                    </h2>
+                    <div class="flex-1 space-y-3 overflow-y-auto pr-1 text-[11px] custom-scroll" id="faq-list">
+                        <!-- FAQs rendered by JS -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Column 4: Contact Us -->
+            <div id="contact" class="lg:col-span-2 flex flex-col h-full">
+                <section id="contact-card" class="h-full bg-brand-primary rounded-4xl p-6 flex flex-col justify-between text-white shadow-xl shadow-brand-primary/20 cursor-pointer group relative overflow-hidden transition-all duration-300">
+                    <div>
+                        <p class="text-[10px] font-bold opacity-80 mb-1 font-mono tracking-wider">SUPPORT & INQUIRY</p>
+                        <h2 class="text-sm font-black leading-snug mb-4">Contact Us</h2>
+                        <p id="contact-desc" class="text-[10px] opacity-90 leading-relaxed transition-all">
+                            Purchasing and B2B inquiries are welcome. Click to reveal email.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/20 mt-4">
+                        <p class="text-[9px] font-bold opacity-70 mb-1 uppercase tracking-widest">Inquiry Channel</p>
+                        <div id="contact-details" class="flex items-center gap-2 text-xs font-black">
+                            <i data-lucide="mail" class="w-3 h-3 text-white/80"></i>
+                            <span id="contact-reveal-text">Reveal Contact Details</span>
+                        </div>
+                    </div>
+
+                    <div id="contact-arrow" class="absolute top-2 right-2 opacity-20 group-hover:opacity-100 transition-opacity">
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-6 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between text-[10px] text-slate-400 gap-4">
+            <p>© 2026 Mimipet Korea. All rights reserved.</p>
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <p class="flex items-center gap-1"><i data-lucide="map-pin" class="w-2.5 h-2.5"></i> 65-1, Sadang-ro, Dongjak-gu, Seoul, Republic of Korea</p>
+                <div class="flex gap-3 text-slate-400 dark:text-slate-500 uppercase tracking-widest font-black">
+                    <a href="https://www.instagram.com/chikachikacool/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-mint-deep flex items-center gap-1">
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Vanilla JavaScript Implementation -->
+    <script>
+        // Data
+        const PRODUCTS = [
+            {
+                id: "pet-100",
+                name: "Chika Chika Cool 100mL",
+                target: "Small & Mid Pets",
+                tag: "For pets",
+                img: "images/chikachika-100ml.png",
+                shortDesc: "It offers a safe and effective solution designed for stress-free application.",
+                details: "Formulated with natural peppermint and cooling agents safe for frequent ingestion. Helps with bad breath and gum health.",
+                usage: "Spray directly into the mouth 2-3 times daily or onto a toy."
+            },
+            {
+                id: "camel-1000",
+                name: "Chika Chika Cool 1L",
+                target: "Large Animals",
+                tag: "For large animals",
+                img: "images/chikachika-1l.png",
+                shortDesc: "1L bulk care for camels, horses, and large species",
+                details: "High-concentration formula providing intense cooling for animals in desert or ranch environments.",
+                usage: "Dilute as needed or apply directly for maximum cooling effect."
+            }
+        ];
+
+        const FAQS = [
+            {
+                q: "Is it safe if my animal swallows the product?",
+                a: "Absolutely. Our ingredients are 100% natural and non-toxic."
+            },
+            {
+                q: "How often should I apply the spray?",
+                a: "We recommend 2-3 times daily for pets, and as needed during grooming sessions for large animals."
+            }
+        ];
+
+        const EMAIL = "sales@mimipet.co.kr";
+
+        // State Management
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        let showEmail = false;
+        let openProducts = new Set();
+
+        // Elements
+        const productsList = document.getElementById('products-list');
+        const faqList = document.getElementById('faq-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const contactCard = document.getElementById('contact-card');
+        const contactDesc = document.getElementById('contact-desc');
+        const contactRevealText = document.getElementById('contact-reveal-text');
+        const contactArrow = document.getElementById('contact-arrow');
+
+        // Functions
+        function initIcons() {
+            lucide.createIcons();
+        }
+
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('darkMode', isDarkMode);
+            document.documentElement.classList.toggle('dark', isDarkMode);
+        }
+
+        function renderProducts() {
+            productsList.innerHTML = PRODUCTS.map(product => `
+                <div class="flex flex-col p-4 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 group transition-all hover:border-brand-primary">
+                    <div class="flex items-center gap-4">
+                        <img src="${product.img}" alt="${product.name}" class="w-20 h-20 rounded-2xl object-cover shrink-0 bg-slate-200" onerror="this.src='https://placehold.co/100x100/EEE/333?text=${encodeURIComponent(product.name)}'">
+                        <div class="flex-1 min-w-0">
+                            <span class="inline-block px-2 py-0.5 rounded-full text-[9px] font-bold mb-1 ${product.id === 'pet-100' ? 'bg-blue-100 text-blue-600' : 'bg-amber-100 text-amber-600'}">
+                                ${product.tag}
+                            </span>
+                            <h3 class="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">${product.name}</h3>
+                            <button onclick="toggleProduct('${product.id}')" class="mt-2 text-[10px] font-bold text-brand-mint-deep hover:underline flex items-center gap-1">
+                                ${openProducts.has(product.id) ? 'Close' : 'Learn More →'}
+                            </button>
+                        </div>
+                    </div>
+                    <div id="details-${product.id}" class="overflow-hidden duration-300 transition-all ${openProducts.has(product.id) ? 'mt-3 max-h-40 opacity-100' : 'max-h-0 opacity-0'}">
+                        <div class="pt-3 text-[10px] text-slate-600 dark:text-slate-300 space-y-2 border-t border-slate-200/50">
+                            <p>${product.details}</p>
+                            <p class="font-bold text-brand-mint-deep italic">How to use: ${product.usage}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.toggleProduct = (id) => {
+            if (openProducts.has(id)) openProducts.delete(id);
+            else openProducts.add(id);
+            renderProducts();
+        };
+
+        function renderFAQs() {
+            faqList.innerHTML = FAQS.map(faq => `
+                <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700">
+                    <p class="font-bold text-slate-700 dark:text-slate-200 mb-1">Q. ${faq.q}</p>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">${faq.a}</p>
+                </div>
+            `).join('');
+        }
+
+        function toggleEmail() {
+            showEmail = !showEmail;
+            if (showEmail) {
+                contactDesc.innerText = "Click again to hide info.";
+                contactRevealText.innerText = EMAIL;
+                contactArrow.classList.add('hidden');
+                contactCard.classList.add('shadow-brand-mint-deep/30');
+            } else {
+                contactDesc.innerText = "Purchasing and B2B inquiries are welcome. Click to reveal email.";
+                contactRevealText.innerText = "Reveal Contact Details";
+                contactArrow.classList.remove('hidden');
+                contactCard.classList.remove('shadow-brand-mint-deep/30');
+            }
+        }
+
+        // Initialize
+        document.documentElement.classList.toggle('dark', isDarkMode);
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        contactCard.addEventListener('click', toggleEmail);
+
+        // Initial Renders
+        initIcons();
+        renderProducts();
+        renderFAQs();
+
+        // Hero entrance animation simulation
+        setTimeout(() => {
+            document.getElementById('hero-content').classList.remove('translate-y-4', 'opacity-0');
+        }, 100);
+    </script>
+</body>
+</html>
