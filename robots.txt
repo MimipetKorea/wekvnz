@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /README.md
+Disallow: /content.json
+Disallow: /mimipet.html
+
+Sitemap: https://mimipet.co.kr/sitemap.xml
